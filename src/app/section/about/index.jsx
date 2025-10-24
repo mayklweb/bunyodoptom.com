@@ -37,10 +37,10 @@ function About() {
     <section>
       <div className="container">
         <div className="mt-5 lg:mt-10">
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start flex-col lg:flex-row gap-5">
             <h1 className="text-[#00369A] text-2xl font-bold">BIZ HAQIMIZDA</h1>
-            <div className="w-3/5">
-              <h3 className="text-[#00369A] text-xl lg:text-3xl text-justif leading-[130%] font-semibold">
+            <div className="w-full lg:w-3/5">
+              <h3 className="text-[#00369A] text-xl lg:text-3xl text-justify leading-[130%] font-semibold">
                 <span className="font-bold">BUNYOD OPTOM</span> – Xorazm
                 viloyatida ulgurji savdo sohasida ishonchli hamkor. Bizning
                 asosiy maqsadimiz – mijozlarimizga sifatli mahsulotlar,
@@ -73,7 +73,7 @@ function About() {
       </div>
       <div className="w-full">
         <div className="container">
-          <div className="w-full items-center justify-between grid grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4 text-6xl md:text-6xl lg:text-8xl py-20 mt-5 rounded-[36px] text-white">
+          <div className="w-full items-center justify-between grid grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4 text-6xl md:text-6xl lg:text-8xl py-5 lg:py-20 mt-5 rounded-[36px] text-white">
             <div className="flex flex-col items-center justify-center bg-[#00369A] rounded-3xl py-6">
               <h1 className="font-bold counter" data-value="99">
                 99+
