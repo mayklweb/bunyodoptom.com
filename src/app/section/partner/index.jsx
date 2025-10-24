@@ -28,7 +28,13 @@ function Partner() {
             </div>
             <div className="w-full flex flex-col-reverse lg:flex-row">
               <div className="w-full lg:w-2/6">
-                <Image src="/krember.jpg" width={300} height={300} alt="" />
+                <Image
+                  className="w-full h-full object-cover"
+                  src="/krember.jpg"
+                  width={300}
+                  height={300}
+                  alt=""
+                />
               </div>
               <p className="w-full lg:w-4/6 text-xl md:text-2xl lg:text-4xl text-justify">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
