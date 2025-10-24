@@ -5,9 +5,9 @@ function Products() {
   return (
     <section>
       <div className="container">
-        <div>
+        <div className="mt-10">
           <div>
-            <h1 className="text-[#003594] text-4xl font-bold uppercase">
+            <h1 className="text-[#003594] text-2xl font-bold uppercase">
               Bizning mahsulotlarimiz
             </h1>
           </div>
