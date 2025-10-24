@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { IMaskInput } from "react-imask";
-
 function Contact() {
   const nameRef = useRef(null);
   const selectRef = useRef(null);
@@ -49,7 +48,7 @@ function Contact() {
       "https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY_HERE&lang=ru_RU";
     script.onload = () => {
       window.ymaps.ready(() => {
-        const initialCoords = [41.513266, 60.607986];
+        const initialCoords = [41.558874, 60.607095];
         const map = new window.ymaps.Map("map", {
           center: initialCoords,
           zoom: 16,
@@ -74,7 +73,7 @@ function Contact() {
       <div className="w-full flex flex-col-reverse lg:flex-row gap-10 relative mt-10">
         <div className="w-full lg:w-[50%] h-[400px] relative">
           <div id="map" className="w-full h-[400px] mt-5 absolute"></div>
-          <div className="w-full h-[400px] mt-5 pointer-events-none shadow-[inset_0px_0px_20px_40px_#ffffff]  absolute"></div>
+          <div className="w-full h-[400px] mt-5 shadow-[inset_0px_0px_20px_40px_#ffffff]  absolute"></div>
         </div>
 
         <div className="w-full lg:w-[50%]">
