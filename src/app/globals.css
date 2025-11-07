@@ -8,7 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-instrument: var(--font-instrument-sans);
+  --font-roboto: var(--font-roboto-sans);
 }
 
 html,
@@ -17,7 +17,7 @@ body {
   height: 100%;
   background: #ffffff;
   color: #171717;
-  font-family: var(--font-instrument-sans), sans-serif;
+  font-family: var(--font-roboto-sans);
   position: relative;
 }
 
@@ -27,11 +27,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-/* 
-.swiper-pagination, .swiper-pagination-clickable, .swiper-pagination-bullets, .swiper-pagination-horizontal{
- padding-top: 40px;
-}
-    */
+
 @keyframes wave {
   0% {
     transform: translateY(0);
@@ -40,3 +36,6 @@ body {
     transform: translateY(-120px);
   }
 }
+
+
+/* black: #121212 */

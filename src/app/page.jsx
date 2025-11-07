@@ -30,10 +30,10 @@ export default function Home() {
           <div className="container">
             <div
               ref={headerRef}
-              className="w-full py-3 px-4 md:py-4 md:px-6 lg:py-6 lg:px-8 flex items-center justify-between backdrop-blur-sm border-solid border-[1px] border-[#ffffff1a] bg-[#fff]/10 rounded-[72px] "
+              className="w-full py-3 px-4 md:py-4 md:px-6 lg:py-6 lg:px-8 flex items-center justify-between backdrop-blur-[30px] border-solid border-[1px] border-[#0000000d] bg-[#fffc] rounded-[24px] "
             >
-              <div className="mix-blend-difference">
-                <h1 className="text-base lg:text-2xl text-white font-bold lg:font-extrabold">
+              <div className="">
+                <h1 className="text-base lg:text-2xl text-[#002bba] font-bold lg:font-extrabold">
                   BUNYOD OPTOM
                 </h1>
               </div>
@@ -52,8 +52,8 @@ export default function Home() {
           <Banner />
           {/* <Banner /> */}
           <About />
-          <Partners />
           <Partner />
+          <Partners/>
           <Products />
           <CEO />
           <Contact />

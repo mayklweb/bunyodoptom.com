@@ -28,8 +28,11 @@ function Banner() {
     <section>
       <div className="h-[820px] relative overflow-hidden">
         <div className="h-full">
-          <div className="w-full h-full bg-black/80 absolute z-[1]"></div>
-          <video
+          <div className="w-full h-full bg-black/80 absolute z-[1]">
+          
+          </div>
+          <Image src={"/banner.avif"} />
+          {/* <video
             src="/bg.mp4"
             ref={videoRef}
             autoPlay
@@ -37,7 +40,7 @@ function Banner() {
             loop
             playsInline
             className="h-full object-cover object-center"
-          />
+          /> */}
         </div>
 
         <div className="w-full h-full absolute top-0 left-0 z-[2] flex flex-col items-center justify-center text-center">

@@ -1,8 +1,8 @@
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Roboto } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+const roboto = Roboto({
+  variable: "--font-roboto-sans",
   subsets: ["latin"],
 });
 
@@ -15,7 +15,7 @@ export const metadata = {
 export default async function LocaleLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} antialiased`}>
+      <body className={`${roboto.variable} antialiased`}>
         {children}
       </body>
     </html>
