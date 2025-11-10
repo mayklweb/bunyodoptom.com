@@ -5,13 +5,13 @@ function Products() {
   return (
     <section>
       <div className="container">
-        <div className="mt-5 lg:mt-10">
+        <div className="mt-10">
           <div>
             <h1 className="text-[#003594] text-2xl lg:text-4xl font-bold">
               ЧТО ПРОДАЁМ
             </h1>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5 lg:mt-10">
             <div className="p-4 bg-[#eff1ff] border border-[#0000000d] rounded-4xl">
               <div className="lg:0">
                 <Image

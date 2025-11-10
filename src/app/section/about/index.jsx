@@ -36,7 +36,7 @@ function About() {
   return (
     <section>
       <div className="container">
-        <div className="mt-5 lg:mt-10">
+        <div className="mt-10">
           <div className="flex justify-between items-start flex-col lg:flex-row gap-5">
             <h1 className="text-[#002bba] text-2xl font-semibold">О НАС</h1>
             <div className="w-full lg:w-1/2">
