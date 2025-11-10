@@ -50,9 +50,8 @@ export default function Home() {
         </header>
         <main className="">
           <Banner />
-          {/* <Banner /> */}
           <About />
-          <Partner />
+          {/* <Partner /> */}
           <Partners/>
           <Products />
           <CEO />

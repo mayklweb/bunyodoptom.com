@@ -38,13 +38,14 @@ function About() {
       <div className="container">
         <div className="mt-5 lg:mt-10">
           <div className="flex justify-between items-start flex-col lg:flex-row gap-5">
-            <h1 className="text-[#002bba] text-2xl font-semibold">Biz haqimizda</h1>
+            <h1 className="text-[#002bba] text-2xl font-semibold">О НАС</h1>
             <div className="w-full lg:w-1/2">
               <h3 className="text-[#121212] text-xl lg:text-3xl text-justify leading-[130%] font-semibold tracking-tight">
-                <span className="font-bold">BUNYOD OPTOM</span> – Xorazm
-                viloyatida ulgurji savdo sohasida ishonchli hamkor. Bizning
-                asosiy maqsadimiz – mijozlarimizga sifatli mahsulotlar,
-                hamyonbop narxlar va tezkor yetkazib berishni taqdim etish.
+                <span className="font-bold">BUNYOD OPTOM</span> —
+                это сервис, который помогает предпринимателям покупать товары
+                оптом быстро, удобно и выгодно. Мы соединяем бизнес с
+                проверенными поставщиками и делаем процесс закупки максимально
+                лёгким и надёжным.
               </h3>
             </div>
           </div>
