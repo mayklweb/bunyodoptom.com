@@ -77,22 +77,22 @@ function Contact() {
         </div>
 
         <div className="w-full lg:w-[50%]">
-          {/* <h1 className="text-4xl text-center text-[#003594]">Aloqa</h1> */}
+          {/* <h1 className="text-4xl text-center text-[#002bba]">Aloqa</h1> */}
           <form onSubmit={handleSubmit} className="form flex flex-col gap-6 ">
             <div className="flex flex-col gap-2">
-              <label className="text-xl text-[#003594]" htmlFor="name">
+              <label className="text-xl text-[#002bba]" htmlFor="name">
                 Ismingiz
               </label>
               <input
                 required
                 ref={nameRef}
-                className="name px-4 py-3 text-lg bg-white text-[#003594] border-[#003594] border-[1px] border-solid outline-none rounded-[72px]"
+                className="name px-4 py-3 text-lg bg-white text-[#002bba] border-[#002bba] border-[1px] border-solid outline-none rounded-[72px]"
                 type="text"
                 placeholder="Ismingiz..."
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-xl text-[#003594]" htmlFor="phone">
+              <label className="text-xl text-[#002bba]" htmlFor="phone">
                 Telefon
               </label>
               <IMaskInput
@@ -101,7 +101,7 @@ function Contact() {
                 unmask={true} // qiymatni mask bilan saqlaydi
                 inputRef={phoneRef}
                 placeholder="Telefon raqamingiz..."
-                className="name px-4 py-3 text-lg bg-white text-[#003594] border-[#003594] border-[1px] border-solid outline-none rounded-[72px]"
+                className="name px-4 py-3 text-lg bg-white text-[#002bba] border-[#002bba] border-[1px] border-solid outline-none rounded-[72px]"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ function Contact() {
               <select
                 ref={selectRef}
                 required
-                className="w-full px-4 py-3 text-lg bg-white text-gray-500 border-[#003594] border-[1px] border-solid outline-none rounded-[72px]"
+                className="w-full px-4 py-3 text-lg bg-white text-gray-500 border-[#002bba] border-[1px] border-solid outline-none rounded-[72px]"
                 name="select"
                 id="select"
               >
@@ -130,7 +130,7 @@ function Contact() {
                 <option value="Boshqa">Boshqa</option>
               </select>
             </div>
-            <button className="bg-[#003594] text-white text-xl mt-5 p-4 cursor-pointer border-[1px] border-solid border-[#003594] rounded-[72px] hover:bg-transparent hover:text-[#003594] transition-all duration-300 ease-in-out">
+            <button className="bg-[#002bba] text-white text-xl mt-5 p-4 cursor-pointer border-[1px] border-solid border-[#002bba] rounded-[72px] hover:bg-transparent hover:text-[#002bba] transition-all duration-300 ease-in-out">
               YUBORISH
             </button>
           </form>

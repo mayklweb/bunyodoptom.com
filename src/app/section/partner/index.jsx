@@ -6,7 +6,7 @@ function Partner() {
     <section>
       <div className="container">
         <div>
-          <h1 className="text-[#003594] text-2xl font-bold">HAMKORLAR</h1>
+          <h1 className="text-[#002bba] text-2xl font-bold">HAMKORLAR</h1>
           <div className="mt-6 flex flex-col gap-10">
             <div className="w-full flex flex-col lg:flex-row items-center">
               <p className="w-full lg:w-2/3 text-xl md:text-2xl lg:text-4xl text-justify">
@@ -43,7 +43,7 @@ function Partner() {
                 facere. Est maxime itaque laborum.
               </p>
             </div>
-            <div className="bg-[#003594] p-4 lg:p-10 rounded-4xl">
+            <div className="bg-[#002bba] p-4 lg:p-10 rounded-4xl">
               <p className="text-white text-xl md:text-2xl lg:text-4xl text-center">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Consectetur a aliquam sint dolores minus corrupti, ipsa quia.

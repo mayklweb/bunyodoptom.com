@@ -7,7 +7,7 @@ function Products() {
       <div className="container">
         <div className="mt-10">
           <div>
-            <h1 className="text-[#003594] text-2xl lg:text-4xl font-bold">
+            <h1 className="text-[#002bba] text-2xl lg:text-4xl font-bold">
               ЧТО ПРОДАЁМ
             </h1>
           </div>

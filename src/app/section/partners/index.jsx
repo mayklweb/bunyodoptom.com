@@ -11,7 +11,7 @@ function Partners() {
     <section>
       <div className="container">
         <div className="mt-10">
-          <h1 className="text-[#003594] text-2xl lg:text-4xl font-bold">
+          <h1 className="text-[#002bba] text-2xl lg:text-4xl font-bold">
             ДИСТРИБЬЮТЕРСТВО
           </h1>
           <div className="w-full mt-5 lg:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-5">
