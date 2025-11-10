@@ -5,7 +5,7 @@ function Products() {
   return (
     <section>
       <div className="container">
-        <div className="mt-10">
+        <div className="mt-5 lg:mt-10">
           <div>
             <h1 className="text-[#003594] text-2xl lg:text-4xl font-bold">
               ЧТО ПРОДАЁМ
