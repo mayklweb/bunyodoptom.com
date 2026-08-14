@@ -1,65 +1,245 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+
 import gsap from "gsap";
+import React, { useEffect, useRef } from "react";
 
 function Banner() {
-  const videoRef = useRef(null);
+  const rootRef = useRef(null);
+  const eyebrowRef = useRef(null);
   const titleRef = useRef(null);
-  const subTitleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) video.play().catch(() => {});
+    const ctx = gsap.context(() => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
 
-    gsap.fromTo(
-      titleRef.current,
-      { y: 100 },
-      { y: 0, duration: 1, ease: "power3.out" }
-    );
+      if (reduceMotion) return;
 
-    gsap.fromTo(
-      subTitleRef.current,
-      { y: 100 },
-      { y: 0, duration: 1.2, ease: "power3.out" }
-    );
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power4.out",
+        },
+      });
+
+      tl.fromTo(
+        eyebrowRef.current,
+        {
+          y: 25,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+        },
+      )
+        .fromTo(
+          titleRef.current,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.1,
+          },
+          "-=0.35",
+        )
+        .fromTo(
+          subtitleRef.current,
+          {
+            y: 30,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+          },
+          "-=0.55",
+        )
+        .fromTo(
+          buttonRef.current,
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+          },
+          "-=0.35",
+        );
+    }, rootRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section>
-      <div className="h-[820px] relative overflow-hidden">
-        <div className="h-full">
-          <div className="w-full h-full bg-black/80 absolute z-[1]">
-          
-          </div>
-          <Image src={"/banner.avif"} />
-          {/* <video
-            src="/bg.mp4"
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="h-full object-cover object-center"
-          /> */}
-        </div>
+    <section
+      ref={rootRef}
+      className="relative min-h-[100svh] w-full overflow-hidden "
+    >
+      {/* Background */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[linear-gradient(180deg,#001233_0%,#0040B1_45%,#4C74C9_75%,#F5F5F5_100%)]
+        "
+      />
 
-        <div className="w-full h-full absolute top-0 left-0 z-[2] flex flex-col items-center justify-center text-center">
-          <div className="overflow-hidden">
-            <h1
-              ref={titleRef}
-              className="text-4xl lg:text-8xl font-[800] text-white"
-            >
-              BUNYOD OPTOM
-            </h1>
-          </div>
+      {/* Glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[180px]
+          -top-[180px]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-blue-400/10
+          blur-[120px]
+        "
+      />
 
-          <div className="overflow-hidden">
+      
+
+      {/* Content */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          flex
+          min-h-[100svh]
+          w-full
+          max-w-[1600px]
+          flex-col
+          justify-center
+          px-5
+          sm:px-8
+          md:px-12
+          lg:px-16
+          xl:px-20
+        "
+      >
+        <div className="container">
+          {/* Eyebrow */}
+          <p
+            ref={eyebrowRef}
+            className="
+              mb-5
+              text-[12px]
+              font-medium
+              uppercase
+              tracking-wider
+              text-white/60
+              sm:mb-6
+              sm:text-xs
+              md:text-sm
+            "
+          >
+            Snek va bakaleya distribyutori
+          </p>
+
+          {/* Title */}
+          <h1
+            ref={titleRef}
+            className="
+              text-[clamp(3.4rem,10vw,9rem)]
+              font-bold
+              uppercase
+              leading-[0.82]
+              tracking-[-0.065em]
+              text-white
+            "
+          >
+            Bunyod
+            <br />
+            <span className="text-white/90">Optom</span>
+          </h1>
+
+          {/* Bottom content */}
+          <div
+            className="
+              mt-8
+              flex
+              flex-col
+              gap-6
+              sm:mt-10
+              md:mt-12
+              md:flex-row
+              md:items-end
+              md:justify-between
+            "
+          >
             <p
-              ref={subTitleRef}
-              className="text-sm lg:text-2xl text-white mt-2"
+              ref={subtitleRef}
+              className="
+                max-w-[460px]
+                text-sm
+                leading-[1.5]
+                text-white/70
+                sm:text-base
+                md:text-lg
+              "
             >
-              ДИСТРИБЬЮТЕРСКАЯ ФИРМА
+              Xorazm bo'ylab do'konlarga ishonchli yetkazib beruvchi.
             </p>
+
+            <button
+              ref={buttonRef}
+              type="button"
+              className="
+                group
+                flex
+                w-fit
+                items-center
+                gap-4
+                rounded-full
+                bg-white
+                px-5
+                py-3
+                text-sm
+                font-medium
+                text-[#001233]
+                transition-all
+                duration-500
+                hover:bg-[#0040b1]
+                hover:text-white
+                sm:px-6
+                sm:py-3.5
+              "
+            >
+              <span>Hamkor bo'lish</span>
+
+              <span
+                className="
+                  flex
+                  h-7
+                  w-7
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#0040b1]
+                  text-white
+                  transition-transform
+                  duration-500
+                  group-hover:translate-x-1
+                  group-hover:bg-white
+                  group-hover:text-[#0040b1]
+                "
+              >
+                ↗
+              </span>
+            </button>
           </div>
         </div>
       </div>

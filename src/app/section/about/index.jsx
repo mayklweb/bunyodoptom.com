@@ -1,91 +1,297 @@
 "use client";
+
 import gsap from "gsap";
 import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { icons } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const STATS = [
+  {
+    value: 99,
+    label: "Savdo agentlari",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        color="#171717"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12.0001 1.25C9.37678 1.25 7.25013 3.37665 7.25013 6C7.25013 8.62335 9.37678 10.75 12.0001 10.75C14.6235 10.75 16.7501 8.62335 16.7501 6C16.7501 3.37665 14.6235 1.25 12.0001 1.25ZM8.75013 6C8.75013 4.20507 10.2052 2.75 12.0001 2.75C13.7951 2.75 15.2501 4.20507 15.2501 6C15.2501 7.79493 13.7951 9.25 12.0001 9.25C10.2052 9.25 8.75013 7.79493 8.75013 6Z"
+          fill="#1C274C"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12.0001 12.25C9.68658 12.25 7.55506 12.7759 5.97558 13.6643C4.41962 14.5396 3.25013 15.8661 3.25013 17.5L3.25007 17.602C3.24894 18.7638 3.24752 20.222 4.52655 21.2635C5.15602 21.7761 6.03661 22.1406 7.22634 22.3815C8.4194 22.6229 9.97436 22.75 12.0001 22.75C14.0259 22.75 15.5809 22.6229 16.7739 22.3815C17.9637 22.1406 18.8443 21.7761 19.4737 21.2635C20.7527 20.222 20.7513 18.7638 20.7502 17.602L20.7501 17.5C20.7501 15.8661 19.5807 14.5396 18.0247 13.6643C16.4452 12.7759 14.3137 12.25 12.0001 12.25ZM4.75013 17.5C4.75013 16.6487 5.37151 15.7251 6.71098 14.9717C8.02693 14.2315 9.89541 13.75 12.0001 13.75C14.1049 13.75 15.9733 14.2315 17.2893 14.9717C18.6288 15.7251 19.2501 16.6487 19.2501 17.5C19.2501 18.8078 19.2098 19.544 18.5265 20.1004C18.156 20.4022 17.5366 20.6967 16.4763 20.9113C15.4194 21.1252 13.9744 21.25 12.0001 21.25C10.0259 21.25 8.58087 21.1252 7.52393 20.9113C6.46366 20.6967 5.84425 20.4022 5.47372 20.1004C4.79045 19.544 4.75013 18.8078 4.75013 17.5Z"
+          fill="#1C274C"
+        />
+      </svg>
+    ),
+  },
+  {
+    value: 20,
+    label: "Xodimlar",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        color="#171717"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12.0001 1.25C9.37678 1.25 7.25013 3.37665 7.25013 6C7.25013 8.62335 9.37678 10.75 12.0001 10.75C14.6235 10.75 16.7501 8.62335 16.7501 6C16.7501 3.37665 14.6235 1.25 12.0001 1.25ZM8.75013 6C8.75013 4.20507 10.2052 2.75 12.0001 2.75C13.7951 2.75 15.2501 4.20507 15.2501 6C15.2501 7.79493 13.7951 9.25 12.0001 9.25C10.2052 9.25 8.75013 7.79493 8.75013 6Z"
+          fill="#1C274C"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12.0001 12.25C9.68658 12.25 7.55506 12.7759 5.97558 13.6643C4.41962 14.5396 3.25013 15.8661 3.25013 17.5L3.25007 17.602C3.24894 18.7638 3.24752 20.222 4.52655 21.2635C5.15602 21.7761 6.03661 22.1406 7.22634 22.3815C8.4194 22.6229 9.97436 22.75 12.0001 22.75C14.0259 22.75 15.5809 22.6229 16.7739 22.3815C17.9637 22.1406 18.8443 21.7761 19.4737 21.2635C20.7527 20.222 20.7513 18.7638 20.7502 17.602L20.7501 17.5C20.7501 15.8661 19.5807 14.5396 18.0247 13.6643C16.4452 12.7759 14.3137 12.25 12.0001 12.25ZM4.75013 17.5C4.75013 16.6487 5.37151 15.7251 6.71098 14.9717C8.02693 14.2315 9.89541 13.75 12.0001 13.75C14.1049 13.75 15.9733 14.2315 17.2893 14.9717C18.6288 15.7251 19.2501 16.6487 19.2501 17.5C19.2501 18.8078 19.2098 19.544 18.5265 20.1004C18.156 20.4022 17.5366 20.6967 16.4763 20.9113C15.4194 21.1252 13.9744 21.25 12.0001 21.25C10.0259 21.25 8.58087 21.1252 7.52393 20.9113C6.46366 20.6967 5.84425 20.4022 5.47372 20.1004C4.79045 19.544 4.75013 18.8078 4.75013 17.5Z"
+          fill="#1C274C"
+        />
+      </svg>
+    ),
+  },
+  {
+    value: 30,
+    label: "Distribyutsiya yo'nalishlari",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        color="#171717"
+        fill="none"
+      >
+        <defs></defs>
+        <path
+          fill="currentColor"
+          d="M3.327,1.739 C3.952,1.247 4.684,1.19 5.457,1.293 C6.194,1.392 7.113,1.659 8.227,1.982 L13.329,3.463 C13.996,3.657 14.56,3.82 15.004,4.01 C15.478,4.212 15.888,4.471 16.199,4.897 C16.508,5.32 16.636,5.792 16.694,6.31 C16.75,6.801 16.75,7.405 16.75,8.126 L16.75,9.442 L18.365,9.926 L18.406,9.938 C19.058,10.134 19.608,10.299 20.041,10.486 C20.501,10.684 20.901,10.936 21.206,11.346 C21.512,11.756 21.638,12.212 21.696,12.71 C21.75,13.178 21.75,13.753 21.75,14.433 L21.75,21.25 L22,21.25 C22.414,21.25 22.75,21.586 22.75,22 C22.75,22.414 22.414,22.75 22,22.75 L2,22.75 C1.586,22.75 1.25,22.414 1.25,22 C1.25,21.586 1.586,21.25 2,21.25 L2.25,21.25 L2.25,6.265 C2.251,5.237 2.262,4.384 2.356,3.711 C2.466,2.926 2.709,2.225 3.327,1.739 Z M4.255,2.917 C4.082,3.054 3.929,3.292 3.842,3.919 C3.767,4.453 3.753,5.152 3.751,6.11 L3.75,21.25 L6.25,21.25 L6.25,18.955 C6.25,18.522 6.25,18.125 6.293,17.803 C6.341,17.447 6.454,17.071 6.763,16.762 C7.072,16.453 7.447,16.341 7.803,16.293 C8.126,16.25 8.522,16.25 8.955,16.25 L10.045,16.25 C10.478,16.25 10.874,16.25 11.197,16.293 C11.553,16.341 11.928,16.453 12.237,16.762 C12.547,17.071 12.659,17.447 12.707,17.803 C12.741,18.061 12.748,18.367 12.75,18.7 L12.75,18.955 L12.75,21.25 L15.25,21.25 L15.25,8.168 C15.25,7.394 15.249,6.875 15.204,6.479 C15.161,6.1 15.085,5.915 14.988,5.782 C14.892,5.651 14.747,5.531 14.416,5.39 C14.065,5.24 13.589,5.101 12.868,4.891 L7.868,3.44 C6.68,3.095 5.87,2.862 5.258,2.78 C4.667,2.701 4.421,2.786 4.255,2.917 Z M16.75,11.008 L16.75,21.25 L20.25,21.25 L20.25,14.24 C20.249,13.635 20.244,13.214 20.206,12.883 C20.165,12.531 20.093,12.363 20.003,12.242 C19.913,12.12 19.772,12.003 19.447,11.863 C19.103,11.715 18.638,11.574 17.934,11.363 Z M10.176,17.75 L9,17.75 C8.507,17.75 8.213,17.751 8.003,17.78 C7.906,17.793 7.858,17.808 7.836,17.817 C7.831,17.819 7.828,17.821 7.826,17.822 L7.822,17.826 C7.821,17.827 7.819,17.831 7.817,17.836 C7.808,17.858 7.793,17.906 7.78,18.003 C7.759,18.161 7.752,18.365 7.751,18.666 L7.75,21.25 L11.25,21.25 L11.25,19 C11.25,18.507 11.248,18.213 11.22,18.003 C11.207,17.906 11.192,17.858 11.183,17.836 C11.181,17.831 11.179,17.827 11.178,17.826 L11.174,17.822 C11.172,17.821 11.169,17.819 11.164,17.817 C11.142,17.808 11.094,17.793 10.997,17.78 C10.813,17.755 10.565,17.751 10.176,17.75 Z M7.25,9 C7.25,8.586 7.586,8.25 8,8.25 L11,8.25 C11.414,8.25 11.75,8.586 11.75,9 C11.75,9.414 11.414,9.75 11,9.75 L8,9.75 C7.586,9.75 7.25,9.414 7.25,9 Z M7.25,13 C7.25,12.586 7.586,12.25 8,12.25 L11,12.25 C11.414,12.25 11.75,12.586 11.75,13 C11.75,13.414 11.414,13.75 11,13.75 L8,13.75 C7.586,13.75 7.25,13.414 7.25,13 Z"
+        ></path>
+      </svg>
+    ),
+  },
+  {
+    value: 99,
+    label: "Transport vositalari",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        color="#171717"
+        fill="none"
+      >
+        <defs></defs>
+        <path
+          fill="currentColor"
+          d="M5,3.25 L12.049,3.25 L12.05,3.25 C12.714,3.25 13.287,3.25 13.746,3.312 C14.238,3.378 14.709,3.527 15.091,3.909 C15.473,4.291 15.622,4.763 15.688,5.254 C15.709,5.408 15.723,5.575 15.732,5.754 C19.629,5.876 22.75,9.074 22.75,13 L22.75,15.803 C22.75,15.983 22.75,16.138 22.733,16.278 C22.605,17.3 21.8,18.105 20.778,18.233 C20.638,18.25 20.483,18.25 20.303,18.25 L20.163,18.25 C19.824,19.683 18.537,20.75 17,20.75 C15.463,20.75 14.176,19.683 13.837,18.25 L10.163,18.25 C9.824,19.683 8.537,20.75 7,20.75 C5.462,20.75 4.173,19.681 3.836,18.246 C3.654,18.243 3.488,18.236 3.337,18.222 C3.008,18.192 2.682,18.126 2.375,17.949 C2.033,17.751 1.749,17.467 1.551,17.125 C1.374,16.818 1.308,16.492 1.278,16.163 C1.25,15.852 1.25,15.472 1.25,15.033 L1.25,15.032 L1.25,7 L1.25,6.951 L1.25,6.95 C1.25,6.286 1.25,5.713 1.312,5.254 C1.378,4.763 1.527,4.291 1.909,3.909 C2.291,3.527 2.763,3.378 3.254,3.312 C3.713,3.25 4.286,3.25 4.95,3.25 Z M14.282,15.717 C14.261,15.649 14.25,15.576 14.25,15.5 L14.25,7 C14.25,6.272 14.248,5.801 14.202,5.454 C14.158,5.129 14.087,5.027 14.03,4.97 C13.973,4.913 13.871,4.842 13.546,4.798 C13.199,4.752 12.728,4.75 12,4.75 L5,4.75 C4.272,4.75 3.801,4.752 3.454,4.798 C3.129,4.842 3.027,4.913 2.97,4.97 C2.913,5.027 2.842,5.129 2.798,5.454 C2.752,5.801 2.75,6.272 2.75,7 L2.75,15 C2.75,15.481 2.751,15.792 2.772,16.027 C2.792,16.252 2.827,16.334 2.85,16.375 C2.916,16.489 3.011,16.584 3.125,16.649 C3.166,16.673 3.248,16.708 3.473,16.728 C3.577,16.737 3.696,16.743 3.838,16.746 C4.178,15.315 5.465,14.25 7,14.25 C8.537,14.25 9.824,15.317 10.163,16.75 L13.837,16.75 C13.925,16.377 14.078,16.029 14.282,15.717 Z M20.163,16.75 L20.263,16.75 C20.506,16.75 20.558,16.749 20.593,16.744 C20.933,16.702 21.202,16.433 21.244,16.093 C21.249,16.058 21.25,16.006 21.25,15.763 L21.25,13 C21.25,9.908 18.81,7.386 15.75,7.255 L15.75,14.499 C16.135,14.339 16.557,14.25 17,14.25 C18.537,14.25 19.824,15.317 20.163,16.75 Z M5.25,17.5 L5.25,17.502 C5.251,18.468 6.034,19.25 7,19.25 C7.966,19.25 8.75,18.466 8.75,17.5 C8.75,16.534 7.966,15.75 7,15.75 C6.034,15.75 5.25,16.534 5.25,17.5 Z M15.25,17.502 C15.251,18.468 16.034,19.25 17,19.25 C17.966,19.25 18.75,18.466 18.75,17.5 C18.75,16.534 17.966,15.75 17,15.75 C16.034,15.75 15.25,16.534 15.25,17.5 Z"
+        ></path>
+      </svg>
+    ),
+  },
+];
+
 function About() {
   useEffect(() => {
-    const counters = gsap.utils.toArray(".counter");
+    const ctx = gsap.context(() => {
+      const counters = gsap.utils.toArray(".counter");
 
-    counters.forEach((counter) => {
-      const el = counter;
-      const endValue = parseInt(el.dataset.value || "0");
+      counters.forEach((counter) => {
+        const el = counter;
+        const endValue = parseInt(el.dataset.value || "0", 10);
+
+        gsap.fromTo(
+          el,
+          { innerText: 0 },
+          {
+            innerText: endValue,
+            duration: 2,
+            ease: "power2.out",
+            snap: {
+              innerText: 1,
+            },
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              end: "bottom 10%",
+              toggleActions: "play none none reverse",
+            },
+            onUpdate: function () {
+              el.innerText = `${Math.floor(parseFloat(el.innerText))}+`;
+            },
+          },
+        );
+      });
 
       gsap.fromTo(
-        el,
-        { innerText: 0 },
+        ".about-eyebrow",
         {
-          innerText: endValue,
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-            end: "bottom 10%",
+            trigger: ".about-section",
+            start: "top 80%",
           },
-          duration: 2,
-          snap: { innerText: 1 },
-          ease: "power1.out",
-          onUpdate: function () {
-            el.innerText = `${Math.floor(parseFloat(el.innerText))}+`;
+        },
+      );
+
+      gsap.fromTo(
+        ".about-title",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".about-section",
+            start: "top 75%",
           },
-        }
+        },
+      );
+
+      gsap.fromTo(
+        ".about-copy",
+        {
+          y: 40,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          delay: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".about-copy",
+            start: "top 85%",
+          },
+        },
+      );
+
+      gsap.fromTo(
+        ".stat-card",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".stats-grid",
+            start: "top 85%",
+          },
+        },
       );
     });
+
+    return () => ctx.revert();
   }, []);
+
   return (
-    <section>
+    <section className="about-section w-full">
       <div className="container">
-        <div className="mt-10">
-          <div className="flex justify-between items-start flex-col lg:flex-row gap-5">
-            <h1 className="text-[#002bba] text-2xl font-semibold">О НАС</h1>
-            <div className="w-full lg:w-1/2">
-              <h3 className="text-[#121212] text-xl lg:text-3xl text-justify leading-[130%] font-normal  tracking-tight">
-                <span className="font-semibold">BUNYOD OPTOM</span> —
-                это сервис, который помогает предпринимателям покупать товары
-                оптом быстро, удобно и выгодно. Мы соединяем бизнес с
-                проверенными поставщиками и делаем процесс закупки максимально
-                лёгким и надёжным.
-              </h3>
+        {/* Header */}
+        <div className="pt-10">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+            {/* Left */}
+            <div className="lg:col-span-3"></div>
+
+            {/* Right */}
+            <div className="lg:col-span-9">
+              <h2
+                className="
+                  about-title
+                  max-w-5xl
+                  text-[clamp(2rem,5vw,4.5rem)]
+                  font-semibold
+                  leading-[100%]
+                  tracking-tight
+                  text-[#171717]
+                "
+              >
+                Biz shunchaki mahsulot
+                <span className="text-[#0040B1]"> yetkazib bermaymiz.</span>
+                <br />
+                Biz bizneslarni bog'laymiz.
+              </h2>
+
+              <div
+                className="
+                  about-copy
+                  mt-8
+                  max-w-3xl
+                  text-base
+                  leading-[1.65]
+                  text-[#555]
+                  sm:text-lg
+                  lg:mt-12
+                "
+              >
+                <p>
+                  Bunyod Optom — Uzbekistan, Xorazm bo'ylab chakana savdo
+                  tarmoqlariga, supermarketlarga, ulgurji xaridorlarga mahsulot
+                  yetkazib beruvchi oziq-ovqat distributori. 2019 yildan buyon
+                  biz sifatli mahsulotlarni ishlab chiqaruvchidan javongacha o'z
+                  vaqtida va uzluksiz yetkazib beradigan tarmoq qurib
+                  kelmoqdamiz.
+                </p>
+
+                <p className="mt-6">
+                  Biz shunchaki yuk tashimaymiz — biz brendlar va chakana
+                  savdogarlar o'rtasidagi butun jarayonni boshqaramiz: talabni
+                  bashorat qilamiz, mahsulot zaxirasini saqlaymiz, logistikani
+                  o'z zimmamizga olamiz va hamkorlarimizning talab qilinadigan
+                  mahsuloti hech qachon tugab qolmasligini ta'minlaymiz.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="w-full">
-        <div className="container">
-          <div className="w-full items-center justify-between grid grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4 text-6xl md:text-6xl lg:text-8xl py-5 lg:py-20 mt-5 rounded-[36px] text-white">
-            <div className="flex flex-col items-center justify-center bg-[#002bba] rounded-3xl py-6">
-              <h1 className="font-bold counter" data-value="99">
-                99+
-              </h1>
-              <p className="text-xs md:text-sm lg:text-lg text-center">
-                Торговые Агенты
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center bg-[#002bba] rounded-3xl py-6">
-              <h1 className="font-bold counter" data-value="99">
-                30+
-              </h1>
-              <p className="text-xs md:text-sm lg:text-lg text-center">
-                Количество Дистрибуций
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center bg-[#002bba] rounded-3xl py-6">
-              <h1 className="font-bold counter" data-value="99">
-                20+
-              </h1>
-              <p className="text-xs md:text-sm lg:text-lg text-center">
-                Сотрудник
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center bg-[#002bba] rounded-3xl py-6">
-              <h1 className="font-bold counter" data-value="99">
-                99+
-              </h1>
-              <p className="text-xs md:text-sm lg:text-lg text-center">
-                Количество Транспортов
-              </p>
-            </div>
+
+        {/* Stats */}
+        <div className="stats-grid mt-20">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {STATS.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-white p-5 rounded-3xl flex flex-col justify-between h-52 shadow-md shadow-[#171717]]/5"
+              >
+                <div>{stat.icon}</div>
+                <div>
+                  <h3 className="text-4xl font-medium text-black">
+                    {stat.value}+
+                  </h3>
+                  <p className="text-sm text-black"> {stat.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
