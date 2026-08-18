@@ -20,10 +20,10 @@ function Partners() {
           <div>
             <h1
               className="
-                text-[clamp(2.5rem,6vw,5.5rem)]
+                text-[clamp(3rem,6vw,5.5rem)]
                 font-semibold
                 uppercase
-                leading-[100%]
+                leading-[90%]
                 tracking-tighter
                 text-[#171717]
               "
@@ -34,7 +34,7 @@ function Partners() {
             </h1>
           </div>
 
-          <p className="max-w-xs text-sm leading-relaxed text-[#171717]/50 sm:text-base">
+          <p className="max-w-[260px] text-sm leading-relaxed text-[#171717]/50 sm:text-base">
             Biznesimizni rivojlantirishda ishonch bildirgan hamkorlarimiz.
           </p>
         </div>

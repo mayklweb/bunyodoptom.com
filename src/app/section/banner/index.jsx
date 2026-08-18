@@ -109,136 +109,39 @@ function Banner() {
         "
       />
 
-      
-
       {/* Content */}
-      <div
-        className="
-          relative
-          z-10
-          mx-auto
-          flex
-          min-h-[100svh]
-          w-full
-          max-w-[1600px]
-          flex-col
-          justify-center
-          px-5
-          sm:px-8
-          md:px-12
-          lg:px-16
-          xl:px-20
-        "
-      >
-        <div className="container">
-          {/* Eyebrow */}
+      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1600px] items-center px-5 sm:px-8 lg:px-12 xl:px-16">
+        <div className="relative max-w-[800px] pl-5 sm:pl-8">
           <p
             ref={eyebrowRef}
-            className="
-              mb-5
-              text-[12px]
-              font-medium
-              uppercase
-              tracking-wider
-              text-white/60
-              sm:mb-6
-              sm:text-xs
-              md:text-sm
-            "
+            className="mb-8 text-[10px] uppercase tracking-[0.25em] text-white/40 sm:text-xs"
           >
-            Snek va bakaleya distribyutori
+            2019 — Xorazm
           </p>
 
-          {/* Title */}
           <h1
             ref={titleRef}
-            className="
-              text-[clamp(3.4rem,10vw,9rem)]
-              font-bold
-              uppercase
-              leading-[0.82]
-              tracking-[-0.065em]
-              text-white
-            "
+            className="text-[clamp(4rem,9vw,9rem)] font-semibold uppercase leading-[0.75] tracking-[-0.08em] text-white"
           >
             Bunyod
             <br />
-            <span className="text-white/90">Optom</span>
+            <span className="text-white/50">Optom</span>
           </h1>
 
-          {/* Bottom content */}
-          <div
-            className="
-              mt-8
-              flex
-              flex-col
-              gap-6
-              sm:mt-10
-              md:mt-12
-              md:flex-row
-              md:items-end
-              md:justify-between
-            "
-          >
+          <div className="mt-10">
             <p
               ref={subtitleRef}
-              className="
-                max-w-[460px]
-                text-sm
-                leading-[1.5]
-                text-white/70
-                sm:text-base
-                md:text-lg
-              "
+              className="max-w-[340px] text-sm leading-[1.6] text-white/45 sm:text-base"
             >
-              Xorazm bo'ylab do'konlarga ishonchli yetkazib beruvchi.
+              Xorazm bo'ylab oziq-ovqat mahsulotlarini ishonchli va uzluksiz
+              yetkazib beramiz.
             </p>
 
             <button
               ref={buttonRef}
-              type="button"
-              className="
-                group
-                flex
-                w-fit
-                items-center
-                gap-4
-                rounded-full
-                bg-white
-                px-5
-                py-3
-                text-sm
-                font-medium
-                text-[#001233]
-                transition-all
-                duration-500
-                hover:bg-[#0040b1]
-                hover:text-white
-                sm:px-6
-                sm:py-3.5
-              "
+              className="mt-7 bg-white rounded-4xl p-4 border-b border-white/20 pb-2 text-sm text-[#0040B1] transition-colors hover:border-white"
             >
-              <span>Hamkor bo'lish</span>
-
-              <span
-                className="
-                  flex
-                  h-7
-                  w-7
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-[#0040b1]
-                  text-white
-                  transition-transform
-                  duration-500
-                  group-hover:translate-x-1
-                  group-hover:bg-white
-                  group-hover:text-[#0040b1]
-                "
-              >
-                ↗
-              </span>
+              Hamkor bo'lish ↗
             </button>
           </div>
         </div>

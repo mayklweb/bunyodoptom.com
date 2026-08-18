@@ -5,7 +5,6 @@ import React from "react";
 const LINKS = [
   { label: "Bosh sahifa", href: "#" },
   { label: "Biz haqimizda", href: "#about" },
-  { label: "Mahsulotlar", href: "#products" },
   { label: "Hamkorlar", href: "#partners" },
   { label: "Aloqa", href: "#contact" },
 ];
@@ -49,7 +48,7 @@ function Footer() {
               <span className="text-white">Optom</span>
             </h2>
 
-            <p className="mt-8 max-w-md text-sm leading-relaxed text-white/45 sm:text-base">
+            <p className="mt-8 max-w-md text-sm leading-relaxed text-white/50 sm:text-base">
               2019 yildan buyon Xorazm hududidagi savdo nuqtalariga oziq-ovqat
               mahsulotlarini ishonchli va uzluksiz yetkazib berib kelayotgan
               distribyutorlik kompaniyasi.
@@ -58,7 +57,7 @@ function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-3 lg:col-start-8">
-            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
               Sahifalar
             </p>
 
@@ -73,7 +72,7 @@ function Footer() {
                     items-center
                     gap-3
                     text-sm
-                    text-white/60
+                    text-white/50
                     transition-colors
                     duration-300
                     hover:text-white
@@ -135,7 +134,7 @@ function Footer() {
               href="mailto:info@bunyodoptom.uz"
               className="
                 text-base
-                text-white/65
+                text-white
                 transition-colors
                 duration-300
                 hover:text-white
@@ -147,11 +146,11 @@ function Footer() {
           </div>
 
           <div>
-            <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+            <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
               Manzil
             </p>
 
-            <p className="max-w-xs text-sm leading-relaxed text-white/55 sm:text-base">
+            <p className="max-w-xs text-sm leading-relaxed text-white sm:text-base">
               Xorazm viloyati,
               <br />
               O'zbekiston
@@ -221,7 +220,7 @@ function Footer() {
                 justify-center
                 rounded-full
                 border
-                border-white/20
+                border-white/50
                 text-sm
                 transition-all
                 duration-300
@@ -241,12 +240,12 @@ function Footer() {
             flex-col
             gap-2
             border-t
-            border-white/10
+            border-white/50
             pt-6
             text-[10px]
             uppercase
             tracking-[0.15em]
-            text-white/25
+            text-white/50
             sm:flex-row
             sm:items-center
             sm:justify-between

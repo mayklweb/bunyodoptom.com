@@ -248,8 +248,8 @@ function About() {
                   mt-8
                   max-w-3xl
                   text-base
-                  leading-[1.65]
-                  text-[#555]
+                  leading-[160%]
+                  text-[#171717]
                   sm:text-lg
                   lg:mt-12
                 "

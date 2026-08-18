@@ -54,10 +54,10 @@ function Contact() {
         <div className="mt-20 mb-10">
           <h1
             className="
-                text-[clamp(2.5rem,6vw,5.5rem)]
+                text-[clamp(3rem,6vw,5.5rem)]
                 font-semibold
                 uppercase
-                leading-[100%]
+                leading-[90%]
                 tracking-tighter
                 text-[#171717]
               "
