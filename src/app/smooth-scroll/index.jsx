@@ -6,7 +6,7 @@ const SmoothScrollWrapper = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1, // silliqroq harakat uchun ko‘proq vaqt
-      easing: (t) => Math.sin((t * 5 /  Math.PI) / 2``), // silliq easing
+      easing: (t) => Math.sin((t * 5 /  Math.PI) / 2), // silliq easing
       smooth: true,
       smoothTouch: true,
     });
