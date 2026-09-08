@@ -7,13 +7,40 @@ import Footer from "@/components/footer";
 const InterTight = Inter_Tight({
   variable: "--font-InterTight-sans",
   subsets: ["latin"],
-  
 });
 
 export const metadata = {
-  title: "BUNYOD OPTOM | DISTRIBYOTORLIK FIRMASI | ДИСТРИБЬЮТЕРСКАЯ ФИРМА",
+  metadataBase: new URL("https://bunyodoptom.com"), // haqiqiy domeningizga almashtiring
+  title: {
+    default: "Bunyod Optom | Distribyutorlik firmasi",
+    template: "%s | Bunyod Optom",
+  },
   description:
-    "Kompaniyamiz Xorazm viloyatidagi turli ulgurji korxonalarga distribyutsiya va marketing xizmatlarini taklif etadi!",
+    "Bunyod Optom — Xorazm viloyatidagi ulgurji korxonalarga distribyutsiya va marketing xizmatlarini taklif etuvchi kompaniya.",
+  keywords: [
+    "Bunyod Optom",
+    "distribyutorlik",
+    "Xorazm",
+    "ulgurji savdo",
+    "marketing xizmatlari",
+  ],
+  openGraph: {
+    title: "Bunyod Optom | Distribyutorlik firmasi",
+    description:
+      "Xorazm viloyatidagi ulgurji korxonalarga distribyutsiya va marketing xizmatlari.",
+    url: "https://bunyodoptom.com",
+    siteName: "Bunyod Optom",
+    locale: "uz_UZ",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default async function LocaleLayout({ children }) {
