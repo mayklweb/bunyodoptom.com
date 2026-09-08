@@ -83,7 +83,7 @@ function Banner() {
   return (
     <section
       ref={rootRef}
-      className="relative min-h-[100svh] w-full overflow-hidden "
+      className="relative min-h-svh w-full overflow-hidden "
     >
       {/* Background */}
       <div
@@ -99,10 +99,10 @@ function Banner() {
         className="
           pointer-events-none
           absolute
-          -right-[180px]
-          -top-[180px]
-          h-[500px]
-          w-[500px]
+          -right-45
+          -top-45
+          h-125
+          w-125
           rounded-full
           bg-blue-400/10
           blur-[120px]
@@ -110,42 +110,108 @@ function Banner() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1600px] items-center px-5 sm:px-8 lg:px-12 xl:px-16">
-        <div className="relative max-w-[800px] pl-5 sm:pl-8">
-          <p
-            ref={eyebrowRef}
-            className="mb-8 text-[10px] uppercase tracking-[0.25em] text-white/40 sm:text-xs"
-          >
-            2019 — Xorazm
-          </p>
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1600px] items-center px-5 sm:px-8 lg:px-12 xl:px-16">
+  <div className="relative max-w-200 pl-5 sm:pl-8">
 
-          <h1
-            ref={titleRef}
-            className="text-[clamp(4rem,9vw,9rem)] font-semibold uppercase leading-[0.75] tracking-[-0.08em] text-white"
-          >
-            Bunyod
-            <br />
-            <span className="text-white/50">Optom</span>
-          </h1>
+    {/* Eyebrow */}
+    <p
+      ref={eyebrowRef}
+      className="mb-8 text-[10px] uppercase tracking-[0.25em] text-white/40 sm:text-xs"
+    >
+      2019 — Xorazm
+    </p>
 
-          <div className="mt-10">
-            <p
-              ref={subtitleRef}
-              className="max-w-[340px] text-sm leading-[1.6] text-white/45 sm:text-base"
-            >
-              Xorazm bo'ylab oziq-ovqat mahsulotlarini ishonchli va uzluksiz
-              yetkazib beramiz.
-            </p>
+    {/* Title */}
+    <h1
+      ref={titleRef}
+      className="
+        text-[clamp(4rem,9vw,9rem)]
+        font-semibold
+        uppercase
+        leading-[0.75]
+        tracking-[-0.08em]
+        text-white
+      "
+    >
+      Bunyod
+      <br />
+      <span className="text-white/50">Optom</span>
+    </h1>
 
-            <button
-              ref={buttonRef}
-              className="mt-7 bg-white rounded-4xl p-4 border-b border-white/20 pb-2 text-sm text-[#0040B1] transition-colors hover:border-white"
-            >
-              Hamkor bo'lish ↗
-            </button>
-          </div>
-        </div>
-      </div>
+    {/* Bottom content */}
+    <div className="mt-10 flex flex-col items-start gap-6 sm:mt-12 sm:gap-7">
+
+      {/* Description */}
+      <p
+        ref={subtitleRef}
+        className="
+          max-w-100
+          text-sm
+          leading-[1.6]
+          text-white/45
+          sm:text-base
+        "
+      >
+        Xorazm bo'ylab qandolat mahsulotlarni mahsulotlarini ishonchli va uzluksiz
+        yetkazib beramiz.
+      </p>
+
+      {/* CTA */}
+      <button
+        ref={buttonRef}
+        className="
+          group
+          relative
+          cursor-pointer
+          overflow-hidden
+          rounded-full
+          bg-white
+          px-5
+          py-2.5
+          text-sm
+          font-medium
+          text-[#0040B1]
+        "
+      >
+        {/* Expanding circle */}
+        <span
+          className="
+            absolute
+            left-4
+            top-1/2
+            h-2
+            w-2
+            -translate-y-1/2
+            rounded-full
+            bg-[#0040B1]
+            transition-all
+            duration-500
+            ease-[cubic-bezier(0.76,0,0.24,1)]
+            group-hover:left-1/2
+            group-hover:scale-[18]
+            group-hover:-translate-x-1/2
+          "
+        />
+
+        {/* Label */}
+        <span
+          className="
+            relative
+            z-10
+            ml-3
+            transition-colors
+            duration-300
+            ease-out
+            group-hover:text-white
+          "
+        >
+          Hamkor bo'lish
+        </span>
+      </button>
+
+    </div>
+  </div>
+</div>
     </section>
   );
 }

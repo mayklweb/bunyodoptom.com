@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 const InterTight = Inter_Tight({
   variable: "--font-InterTight-sans",
   subsets: ["latin"],
+  
 });
 
 export const metadata = {

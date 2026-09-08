@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 
 const LOGOS = [
@@ -13,12 +12,12 @@ const LOGOS = [
 
 function Partners() {
   return (
-    <section>
-      <div className="container ">
+    <section className="w-full">
+      <div className="container">
         {/* Header */}
         <div className="mt-20 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1
+            <h2
               className="
                 text-[clamp(3rem,6vw,5.5rem)]
                 font-semibold
@@ -30,41 +29,31 @@ function Partners() {
             >
               Biz bilan
               <br />
-              <span className="text-[#171717]/50">birga.</span>
-            </h1>
+              <span className="text-[#171717]/40">birga.</span>
+            </h2>
           </div>
 
-          <p className="max-w-[260px] text-sm leading-relaxed text-[#171717]/50 sm:text-base">
+          <p
+            className="
+              max-w-65
+              text-sm
+              leading-relaxed
+              text-[#171717]/50
+              sm:text-base
+            "
+          >
             Biznesimizni rivojlantirishda ishonch bildirgan hamkorlarimiz.
           </p>
         </div>
 
         {/* Logos */}
-        <div className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3 mt-10">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3">
           {LOGOS.map((logo, i) => (
             <div
               key={`${logo.src}-${i}`}
-              className="
-                group
-                relative
-                flex
-                aspect-square
-                items-center
-                justify-center
-                overflow-hidden
-                rounded-[28px]
-                border
-                border-black/[0.06]
-                bg-white
-                p-5
-                transition-all
-                duration-500
-                hover:-translate-y-1
-                hover:shadow-[0_20px_50px_rgba(0,0,0,0.07)]
-                sm:p-7
-                lg:p-8
-              "
+              className="group relative flex aspect-square items-center justify-center overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[#0040B1]/10 hover:shadow-[0_20px_50px_rgba(0,0,0,0.07)] sm:p-7 lg:p-8"
             >
+              {/* Logo */}
               <div
                 className={`
                   relative
@@ -72,6 +61,7 @@ function Partners() {
                   w-full
                   transition-transform
                   duration-500
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
                   group-hover:scale-[1.04]
                   ${logo.pad ? "p-6 sm:p-10" : ""}
                 `}
@@ -80,80 +70,94 @@ function Partners() {
                   src={logo.src}
                   alt="Hamkor brend"
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 300px"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
                   className="object-contain"
                 />
               </div>
             </div>
           ))}
-
           {/* More partners */}
           <div
             className="
-              group
-              relative
-              flex
-              aspect-square
-              flex-col
-              items-center
-              justify-center
-              overflow-hidden
-              rounded-[28px]
-              bg-[#001233]
-              p-6
-              text-center
-              transition-all
-              duration-500
-              hover:-translate-y-1
-              hover:bg-[#0040b1]
-              hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
-            "
-          >
-            <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/50 sm:text-xs">
-              Va yana
-            </p>
-
-            <p
-              className="
-                mt-3
-                text-[clamp(3rem,6vw,5rem)]
-                font-semibold
-                leading-none
-                tracking-[-0.06em]
-                text-white
-              "
-            >
-              99+
-            </p>
-
-            <p className="mt-3 text-xs text-white/60 sm:text-sm">
-              mahalliy brend
-            </p>
-
-            <span
-              className="
-                absolute
-                right-5
-                top-5
+  group
+                relative
                 flex
-                h-9
-                w-9
+                aspect-square
                 items-center
                 justify-center
-                rounded-full
-                bg-white/10
-                text-sm
-                text-white
+                overflow-hidden
+                rounded-[28px]  
+                border
+                border-black/5
+                bg-white
+                p-5
                 transition-all
                 duration-500
-                group-hover:translate-x-1
-                group-hover:bg-white
-                group-hover:text-[#0040b1]
-              "
+                ease-[cubic-bezier(0.22,1,0.36,1)]
+                hover:-translate-y-1
+                hover:border-[#0040B1]/10
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.07)]
+                sm:p-7
+                lg:p-8
+  "
+          >
+            {/* Content */}
+            <div
+              className="
+      relative
+      z-10
+      flex
+      flex-col
+      items-center
+      transition-transform
+      duration-500
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      group-hover:scale-[1.03]
+    "
             >
-              ↗
-            </span>
+              <span
+                className="
+        text-[12px]
+        font-medium
+        uppercase
+        tracking-widest
+        text-[#17171780]
+        sm:text-xs
+      "
+              >
+                Hamkorlarimiz
+              </span>
+
+              <span
+                className="
+        mt-4
+        text-[clamp(3.5rem,7vw,5.5rem)]
+        font-semibold
+        leading-[0.85]
+        tracking-[-0.07em]
+        text-black
+      "
+              >
+                30+
+              </span>
+
+              <span
+                className="
+        mt-4
+        text-xs
+        font-medium
+        text-[#17171780]
+        transition-colors
+        duration-300
+        group-hover:text-black/60
+        sm:text-sm
+      "
+              >
+                mahalliy brend
+              </span>
+            </div>
           </div>
+          div
         </div>
       </div>
     </section>

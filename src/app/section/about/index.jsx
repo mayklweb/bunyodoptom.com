@@ -3,13 +3,12 @@
 import gsap from "gsap";
 import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { icons } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const STATS = [
   {
-    value: 99,
+    value: 90,
     label: "Savdo agentlari",
     icon: (
       <svg
@@ -83,7 +82,7 @@ const STATS = [
     ),
   },
   {
-    value: 99,
+    value: 15,
     label: "Transport vositalari",
     icon: (
       <svg
@@ -107,35 +106,9 @@ const STATS = [
 function About() {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const counters = gsap.utils.toArray(".counter");
-
-      counters.forEach((counter) => {
-        const el = counter;
-        const endValue = parseInt(el.dataset.value || "0", 10);
-
-        gsap.fromTo(
-          el,
-          { innerText: 0 },
-          {
-            innerText: endValue,
-            duration: 2,
-            ease: "power2.out",
-            snap: {
-              innerText: 1,
-            },
-            scrollTrigger: {
-              trigger: el,
-              start: "top 90%",
-              end: "bottom 10%",
-              toggleActions: "play none none reverse",
-            },
-            onUpdate: function () {
-              el.innerText = `${Math.floor(parseFloat(el.innerText))}+`;
-            },
-          },
-        );
-      });
-
+      // =========================
+      // ABOUT EYEBROW
+      // =========================
       gsap.fromTo(
         ".about-eyebrow",
         {
@@ -150,10 +123,14 @@ function About() {
           scrollTrigger: {
             trigger: ".about-section",
             start: "top 80%",
+            once: true,
           },
         },
       );
 
+      // =========================
+      // ABOUT TITLE
+      // =========================
       gsap.fromTo(
         ".about-title",
         {
@@ -168,10 +145,14 @@ function About() {
           scrollTrigger: {
             trigger: ".about-section",
             start: "top 75%",
+            once: true,
           },
         },
       );
 
+      // =========================
+      // ABOUT COPY
+      // =========================
       gsap.fromTo(
         ".about-copy",
         {
@@ -187,10 +168,14 @@ function About() {
           scrollTrigger: {
             trigger: ".about-copy",
             start: "top 85%",
+            once: true,
           },
         },
       );
 
+      // =========================
+      // STAT CARDS
+      // =========================
       gsap.fromTo(
         ".stat-card",
         {
@@ -206,9 +191,36 @@ function About() {
           scrollTrigger: {
             trigger: ".stats-grid",
             start: "top 85%",
+            once: true,
           },
         },
       );
+
+      // =========================
+      // COUNTERS
+      // =========================
+      gsap.utils.toArray(".counter").forEach((counter) => {
+        const endValue = Number(counter.dataset.value ?? 0);
+
+        gsap.fromTo(
+          counter,
+          { innerText: 0 },
+          {
+            innerText: endValue,
+            duration: 2,
+            ease: "power2.out",
+            snap: { innerText: 1 },
+            scrollTrigger: {
+              trigger: counter,
+              start: "top 90%",
+              once: true,
+            },
+            onUpdate() {
+              counter.innerText = `${Math.floor(Number(counter.innerText))}+`;
+            },
+          },
+        );
+      });
     });
 
     return () => ctx.revert();
@@ -285,8 +297,11 @@ function About() {
               >
                 <div>{stat.icon}</div>
                 <div>
-                  <h3 className="text-4xl font-medium text-black">
-                    {stat.value}+
+                  <h3
+                    className="counter text-4xl font-medium text-black"
+                    data-value={stat.value}
+                  >
+                    0+
                   </h3>
                   <p className="text-sm text-black"> {stat.label}</p>
                 </div>

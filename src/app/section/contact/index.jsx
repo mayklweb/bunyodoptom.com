@@ -72,7 +72,7 @@ function Contact() {
         <div
           className="
             overflow-hidden
-            rounded-[32px]
+            rounded-4xl
             bg-white
             shadow-[0_20px_80px_rgba(0,0,0,0.06)]
             sm:rounded-[40px]
@@ -84,7 +84,7 @@ function Contact() {
             <div
               className="
                 relative
-                min-h-[520px]
+                min-h-130
                 overflow-hidden
                 bg-[linear-gradient(135deg,#001233_0%,#002B78_50%,#0040B1_100%)]
                 p-7
@@ -119,7 +119,7 @@ function Contact() {
                   h-96
                   w-96
                   rounded-full
-                  bg-white/[0.04]
+                  bg-white/4
                 "
               />
 
@@ -207,7 +207,7 @@ function Contact() {
               <div className="lg:col-span-7 lg:col-start-6">
                 <form onSubmit={handleSubmit}>
                   {/* Name */}
-                  <div className="border-t border-black/10 py-4 sm:py-5">
+                  <div className="border-t border-black/10 pt-5 pb-1">
                     <label className="mb-2 block text-[10px] font-medium uppercase tracking-[0.18em] text-black/35">
                       Ismingiz
                     </label>
@@ -232,7 +232,7 @@ function Contact() {
                   </div>
 
                   {/* Phone */}
-                  <div className="border-t border-black/10 py-4 sm:py-5">
+                  <div className="border-t border-black/10 pt-5 pb-1">
                     <label className="mb-2 block text-[10px] font-medium uppercase tracking-[0.18em] text-black/35">
                       Telefon
                     </label>
@@ -256,7 +256,7 @@ function Contact() {
                   </div>
 
                   {/* Topic */}
-                  <div className="border-t border-black/10 py-4 sm:py-5">
+                  <div className="border-t border-black/10 pt-5 pb-1">
                     <label className="mb-2 block text-[10px] font-medium uppercase tracking-[0.18em] text-black/35">
                       Mavzu
                     </label>
@@ -314,6 +314,7 @@ function Contact() {
           duration-300
           hover:bg-[#00328f]
           sm:px-6
+          cursor-pointer
         "
                     >
                       <span>
